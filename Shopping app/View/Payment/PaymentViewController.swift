@@ -14,17 +14,22 @@ class PaymentViewController: UIViewController,UITableViewDataSource, UITableView
     var model = SingletonManager.model
     var currencys = [String]()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.orderTableView.dataSource = self
         self.orderTableView.delegate = self
         orderTableView.tableFooterView = UIView()
-        
-//        self.currencyPickerView.dataSource = self
-//        self.currencyPickerView.delegate = self
         configureCheckout()
+        apiUrlCurrency()
         
+
+    }
+   
+    override func viewDidAppear(_ animated: Bool) {
+        orderTableView.reloadData()
+    }
+    
+    func apiUrlCurrency() {
         guard let url = URL(string: "https://www.freeforexapi.com/api/live?pairs=EURGBP,USDJPY")
             else {return}
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -36,16 +41,12 @@ class PaymentViewController: UIViewController,UITableViewDataSource, UITableView
                 let jsonResponse = try JSONSerialization.jsonObject(with:
                     dataResponse, options: [])
                 print(jsonResponse)
-        
+                
             } catch let parsingError {
                 print("Error", parsingError)
             }
         }
         task.resume()
-    }
-   
-    override func viewDidAppear(_ animated: Bool) {
-        orderTableView.reloadData()
     }
     
     func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
@@ -55,9 +56,7 @@ class PaymentViewController: UIViewController,UITableViewDataSource, UITableView
     }
     
     func configureCheckout() {
-       // currencyPickerView.selectedRow(inComponent: 0)
         toaltLabel.text = "$" + String(format: "%.2f", model.calculateCartTotal())
-        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -80,17 +79,8 @@ class PaymentViewController: UIViewController,UITableViewDataSource, UITableView
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
-//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//       // return model.pickUpLocations.count
-//    }
-    
-//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//        return model.pickUpLocations[row]["street"]! + ", " + model.pickUpLocations[row]["suburb"]!
-//    }
-//
+
     @IBAction func payNow(_ sender: Any) {
-        
         let error = ""
        if error.isEmpty {
             
@@ -103,31 +93,23 @@ class PaymentViewController: UIViewController,UITableViewDataSource, UITableView
     }
     
     var alertController: UIAlertController?
-    
     func showAlertMsg(_ title: String, message: String, style: UIAlertController.Style) {
-        
         self.alertController = UIAlertController(title: title, message: message, preferredStyle: style)
-        
         if style == UIAlertController.Style.actionSheet {
             alertController?.addAction(UIAlertAction(title: "Pay", style: .default, handler: { _ in
                 self.checkout()
             }))
-            
             alertController?.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         } else {
             alertController?.addAction(UIAlertAction(title: "Okay", style: .default))
         }
-        
         self.present(self.alertController!, animated: true, completion: nil)
         
     }
     
     func checkout() {
-        
         var success = true
-        
         for count in 0...self.model.basket.count - 1 {
-            
             let product = self.model.products[Int(self.model.basket[count][0])]
             let quantity = Int(self.model.basket[count][1])
             let total = self.model.basket[count][2]

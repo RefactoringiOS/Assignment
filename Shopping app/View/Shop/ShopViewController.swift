@@ -22,7 +22,6 @@ class ShopViewController: UIViewController {
         super.viewDidLoad()
         self.tableView!.dataSource = self
         self.tableView!.delegate = self
-        //tableView.tableFooterView = UIView()
         readJson()
     }
 }
@@ -100,8 +99,4 @@ extension ShopViewController: UITableViewDelegate,UITableViewDataSource {
             
         }
     }
-    
 }
-
-
-

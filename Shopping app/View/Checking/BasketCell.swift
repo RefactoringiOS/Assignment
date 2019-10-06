@@ -13,6 +13,3 @@ class BasketCell: UITableViewCell {
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
 }
-
-
-

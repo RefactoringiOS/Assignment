@@ -36,9 +36,6 @@ class CheckingViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "basketCell", for: indexPath) as! BasketCell
-        
-//        cell.productImage.image = model.products[Int(model.basket[indexPath.row][0])].image
-//        cell.productImage.image = UIImage (named: (model.basket[indexPath.row][0])].image)!)
         cell.nameLabel.text = model.products[Int(model.basket[indexPath.row][0])].name
         cell.quantityLabel.text = "Quantity: " + String(Int(model.basket[indexPath.row][1]))
         cell.priceLabel.text = "$" + String(format: "%.2f", model.basket[indexPath.row][2])
@@ -76,7 +73,6 @@ class CheckingViewController: UIViewController, UITableViewDataSource, UITableVi
                 self.editButton.title = "Edit"
                 self.tableView.setEditing(false, animated: true)
             }
-            
         }
     }
     
@@ -106,9 +102,4 @@ class CheckingViewController: UIViewController, UITableViewDataSource, UITableVi
             self.performSegue(withIdentifier: "Checkout", sender: sender)
         }
     }
-    
-    
-
- 
-
 }
