@@ -16,14 +16,13 @@
 		B2AFCF7F2347BF5700E2CA4C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AFCF7E2347BF5600E2CA4C /* LoginViewController.swift */; };
 		B2AFCF872347C2B200E2CA4C /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AFCF862347C2B200E2CA4C /* ShopViewController.swift */; };
 		B2AFCF892347C2E000E2CA4C /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AFCF882347C2E000E2CA4C /* PaymentViewController.swift */; };
-		B2AFCF8F2347C31F00E2CA4C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AFCF8E2347C31F00E2CA4C /* SettingViewController.swift */; };
+		B2AFCF8F2347C31F00E2CA4C /* ForeignExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AFCF8E2347C31F00E2CA4C /* ForeignExchangeViewController.swift */; };
 		B2AFCF922347C64100E2CA4C /* CheckingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AFCF912347C64100E2CA4C /* CheckingViewController.swift */; };
 		B2D096382348BC8F0083CCDD /* Products.json in Resources */ = {isa = PBXBuildFile; fileRef = B2D096372348BC8F0083CCDD /* Products.json */; };
 		B2D096432348E9580083CCDD /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D096422348E9580083CCDD /* Product.swift */; };
 		B2D096452348EA7D0083CCDD /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D096442348EA7D0083CCDD /* ProductViewModel.swift */; };
 		B2D096472349366C0083CCDD /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D096462349366C0083CCDD /* Model.swift */; };
 		B2D09649234940D10083CCDD /* SingletonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D09648234940D00083CCDD /* SingletonManager.swift */; };
-		B2D0964C23495BC30083CCDD /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D0964B23495BC30083CCDD /* Request.swift */; };
 		B2D0964E234962740083CCDD /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D0964D234962740083CCDD /* Currency.swift */; };
 		B2D096502349FAD90083CCDD /* BasketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D0964F2349FAD90083CCDD /* BasketCell.swift */; };
 		B2D09653234A1E0C0083CCDD /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D09652234A1E0C0083CCDD /* ConfirmationViewController.swift */; };
@@ -66,14 +65,13 @@
 		B2AFCF7E2347BF5600E2CA4C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B2AFCF862347C2B200E2CA4C /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		B2AFCF882347C2E000E2CA4C /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
-		B2AFCF8E2347C31F00E2CA4C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		B2AFCF8E2347C31F00E2CA4C /* ForeignExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeignExchangeViewController.swift; sourceTree = "<group>"; };
 		B2AFCF912347C64100E2CA4C /* CheckingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckingViewController.swift; sourceTree = "<group>"; };
 		B2D096372348BC8F0083CCDD /* Products.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Products.json; sourceTree = "<group>"; };
 		B2D096422348E9580083CCDD /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		B2D096442348EA7D0083CCDD /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		B2D096462349366C0083CCDD /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		B2D09648234940D00083CCDD /* SingletonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonManager.swift; sourceTree = "<group>"; };
-		B2D0964B23495BC30083CCDD /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		B2D0964D234962740083CCDD /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		B2D0964F2349FAD90083CCDD /* BasketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketCell.swift; sourceTree = "<group>"; };
 		B2D09652234A1E0C0083CCDD /* ConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
@@ -135,7 +133,6 @@
 				B2D096392348C3AE0083CCDD /* View */,
 				B2AFCF7D2347BE4500E2CA4C /* Model */,
 				B2D0963A2348C4010083CCDD /* View Model */,
-				B2D0964A23495AE20083CCDD /* Requests */,
 				B2AFCF7C2347BE3F00E2CA4C /* Resources */,
 				B2D0963B2348C4A40083CCDD /* UI interface */,
 				B2AFCF502347BD8B00E2CA4C /* Assets.xcassets */,
@@ -165,7 +162,7 @@
 		B2AFCF772347BD9300E2CA4C /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				B2AFCF8E2347C31F00E2CA4C /* SettingViewController.swift */,
+				B2AFCF8E2347C31F00E2CA4C /* ForeignExchangeViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -262,14 +259,6 @@
 				B2AFCF522347BD8B00E2CA4C /* LaunchScreen.storyboard */,
 			);
 			path = "UI interface";
-			sourceTree = "<group>";
-		};
-		B2D0964A23495AE20083CCDD /* Requests */ = {
-			isa = PBXGroup;
-			children = (
-				B2D0964B23495BC30083CCDD /* Request.swift */,
-			);
-			path = Requests;
 			sourceTree = "<group>";
 		};
 		B2D09651234A1DE00083CCDD /* Confirmation */ = {
@@ -413,7 +402,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2E0407023486D4500DA18AD /* Shopping.xcdatamodeld in Sources */,
-				B2AFCF8F2347C31F00E2CA4C /* SettingViewController.swift in Sources */,
+				B2AFCF8F2347C31F00E2CA4C /* ForeignExchangeViewController.swift in Sources */,
 				B2D09653234A1E0C0083CCDD /* ConfirmationViewController.swift in Sources */,
 				B2D09649234940D10083CCDD /* SingletonManager.swift in Sources */,
 				B2AFCF7F2347BF5700E2CA4C /* LoginViewController.swift in Sources */,
@@ -427,7 +416,6 @@
 				B2D096452348EA7D0083CCDD /* ProductViewModel.swift in Sources */,
 				B2AFCF4A2347BD8A00E2CA4C /* AppDelegate.swift in Sources */,
 				B2D096432348E9580083CCDD /* Product.swift in Sources */,
-				B2D0964C23495BC30083CCDD /* Request.swift in Sources */,
 				B2AFCF872347C2B200E2CA4C /* ShopViewController.swift in Sources */,
 				B2AFCF892347C2E000E2CA4C /* PaymentViewController.swift in Sources */,
 			);

@@ -1,5 +1,5 @@
 //
-//  SettingViewController.swift
+//  ForeignExchange.swift
 //  Shopping app
 //
 //  Created by KOVIGROUP on 04/10/2019.
@@ -8,14 +8,9 @@
 
 import UIKit
 
-class SettingViewController: UIViewController {
+class ForeignExchange: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
-    
-
-   
-
 }

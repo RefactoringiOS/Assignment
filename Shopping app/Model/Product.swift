@@ -24,5 +24,3 @@ class Product: CustomStringConvertible {
         return "Products \(self.price) - \(self.name) - \(self.quantity) - \(String(describing: self.image))"
     }
 }
-
-
