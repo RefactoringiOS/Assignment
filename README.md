@@ -1,0 +1,2 @@
+# Assignment
+Simple shopping app 
