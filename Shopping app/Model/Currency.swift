@@ -9,5 +9,9 @@
 import UIKit
 
 struct Currency : Decodable {
-    let currency : String
+    let rates: String
+    let rate: String
+    func getString() {
+        print( "rates: \(rates), rate: \(rate)" )
+    }
 }
