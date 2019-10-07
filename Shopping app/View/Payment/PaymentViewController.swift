@@ -8,12 +8,19 @@
 
 import UIKit
 
-class PaymentViewController: UIViewController,UITableViewDataSource, UITableViewDelegate{
+class PaymentViewController: UIViewController,UITableViewDataSource, UITableViewDelegate,UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var orderTableView: UITableView!
     @IBOutlet weak var toaltLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var currencyPicker: UIPickerView!
     var model = SingletonManager.model
     var currencys = [String]()
+    var currency = [Int: Currency]()
     
+    let baseURL = "https://www.freeforexapi.com/api/live?pairs=USD"
+    let currencySelected = ["AUD", "CAD","EUR","GBP","JPY","NZD","PLN","USD"]
+    var finalURL = ""
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         self.orderTableView.dataSource = self
@@ -21,34 +28,58 @@ class PaymentViewController: UIViewController,UITableViewDataSource, UITableView
         orderTableView.tableFooterView = UIView()
         configureCheckout()
         apiUrlCurrency()
-        
-
+        currencyPicker.delegate = self
+        currencyPicker.dataSource = self
+        currencyPicker.selectRow(5, inComponent:0, animated:false)
+        finalURL = baseURL + currencySelected[7]
+        print(finalURL)
     }
-   
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return currencySelected.count
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return currencySelected[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        finalURL = baseURL + currencySelected[row]
+        print(finalURL)
+    }
+
+        func apiUrlCurrency() {
+        do {
+            if let file = URL(string: finalURL) {
+                let data = try Data(contentsOf: file)
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                if let object = json as? [String: Any] {
+                    if (object["rates"] as? [[String:Any]]) != nil {
+                } else if let object = json as? [Any] {
+                    for anItem in object as! [Dictionary<String, AnyObject>] {
+                        let rates = anItem["rates"] as! String
+                        let rate = anItem["rate"] as! String
+                        _ = Currency(rates: rates, rate: rate )
+                    }
+                    }
+                } else {
+                    print("JSON is invalid")
+                }
+            } else {
+                print("no file")
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+  
     override func viewDidAppear(_ animated: Bool) {
         orderTableView.reloadData()
     }
-    
-    func apiUrlCurrency() {
-        guard let url = URL(string: "https://www.freeforexapi.com/api/live?pairs=EURGBP,USDJPY")
-            else {return}
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard let dataResponse = data,
-                error == nil else {
-                    print(error?.localizedDescription ?? "Response Error")
-                    return }
-            do{
-                let jsonResponse = try JSONSerialization.jsonObject(with:
-                    dataResponse, options: [])
-                print(jsonResponse)
-                
-            } catch let parsingError {
-                print("Error", parsingError)
-            }
-        }
-        task.resume()
-    }
-    
     func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
         if let controller = viewController as? CheckingViewController {
             controller.tableView.reloadData()
@@ -75,21 +106,15 @@ class PaymentViewController: UIViewController,UITableViewDataSource, UITableView
         
         return cell
     }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
 
     @IBAction func payNow(_ sender: Any) {
         let error = ""
        if error.isEmpty {
-            
             showAlertMsg("Confirm Purchase", message: "Pay " + toaltLabel.text!, style: UIAlertController.Style.actionSheet)
         }
         else {
             showAlertMsg("Error", message: error, style: UIAlertController.Style.alert)
         }
-        
     }
     
     var alertController: UIAlertController?
@@ -104,7 +129,6 @@ class PaymentViewController: UIViewController,UITableViewDataSource, UITableView
             alertController?.addAction(UIAlertAction(title: "Okay", style: .default))
         }
         self.present(self.alertController!, animated: true, completion: nil)
-        
     }
     
     func checkout() {
