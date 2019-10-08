@@ -15,7 +15,6 @@ class PaymentViewController: UIViewController,UITableViewDataSource, UITableView
     @IBOutlet weak var fxCurrency: UILabel!
     @IBOutlet weak var currencyPicker: UIPickerView!
     var model = SingletonManager.model
-    @IBOutlet weak var testLabe: UILabel!
     var currency = [Currency]()
     var activeCurrency = 0
     let baseURL = "https://www.freeforexapi.com/api/live?pairs=USD"
@@ -30,7 +29,6 @@ class PaymentViewController: UIViewController,UITableViewDataSource, UITableView
         self.orderTableView.delegate = self
         orderTableView.tableFooterView = UIView()
         configureCheckout()
-        apiUrlCurrency()
         currencyPicker.delegate = self
         currencyPicker.dataSource = self
         currencyPicker.selectRow(5, inComponent:0, animated:false)
@@ -50,9 +48,16 @@ class PaymentViewController: UIViewController,UITableViewDataSource, UITableView
                 if let rates = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String:Any]{
                         self.currency = [Currency]()
                     let data = rates["rates"] as! NSDictionary
+                    print("You pay!@",data)
                     
-                    print("&@",data)
-            
+                    DispatchQueue.main.async {
+                     /*=======================
+                         TO DO
+                         calculate currency conversion
+                         and Finish but this is another story  🤝 😉
+                       =======================*/
+                    }
+                
     completion(rates, nil)
                     
                 }
@@ -83,31 +88,6 @@ class PaymentViewController: UIViewController,UITableViewDataSource, UITableView
             debugPrint(dict as Any)
         }
         toaltLabel.text = fxCurrency.text! + String(format: "%.2f", model.calculateCartTotal())
-    }
-        func apiUrlCurrency() {
-        do {
-            if let file = URL(string: finalURL) {
-                let data = try Data(contentsOf: file)
-                let json = try JSONSerialization.jsonObject(with: data, options: [])
-                if let object = json as? [String: Any] {
-                    if (object["rates"] as? [[String:Any]]) != nil {
-                } else if let object = json as? [Any] {
-                    for anItem in object as! [Dictionary<String, AnyObject>] {
-                        let rates = anItem["rates"] as! String
-                        let rate = anItem["rate"] as! Double
-                         //self.toaltLabel.text = as! Double
-                        _ = Currency(rates: rates, rate: rate )
-                    }
-                    }
-                } else {
-                    print("JSON is invalid")
-                }
-            } else {
-                print("no file")
-            }
-        } catch {
-            print(error.localizedDescription)
-        }
     }
   
     override func viewDidAppear(_ animated: Bool) {
