@@ -16,7 +16,6 @@
 		B2AFCF7F2347BF5700E2CA4C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AFCF7E2347BF5600E2CA4C /* LoginViewController.swift */; };
 		B2AFCF872347C2B200E2CA4C /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AFCF862347C2B200E2CA4C /* ShopViewController.swift */; };
 		B2AFCF892347C2E000E2CA4C /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AFCF882347C2E000E2CA4C /* PaymentViewController.swift */; };
-		B2AFCF8F2347C31F00E2CA4C /* ForeignExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AFCF8E2347C31F00E2CA4C /* ForeignExchangeViewController.swift */; };
 		B2AFCF922347C64100E2CA4C /* CheckingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AFCF912347C64100E2CA4C /* CheckingViewController.swift */; };
 		B2D096382348BC8F0083CCDD /* Products.json in Resources */ = {isa = PBXBuildFile; fileRef = B2D096372348BC8F0083CCDD /* Products.json */; };
 		B2D096432348E9580083CCDD /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D096422348E9580083CCDD /* Product.swift */; };
@@ -65,7 +64,6 @@
 		B2AFCF7E2347BF5600E2CA4C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B2AFCF862347C2B200E2CA4C /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		B2AFCF882347C2E000E2CA4C /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
-		B2AFCF8E2347C31F00E2CA4C /* ForeignExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeignExchangeViewController.swift; sourceTree = "<group>"; };
 		B2AFCF912347C64100E2CA4C /* CheckingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckingViewController.swift; sourceTree = "<group>"; };
 		B2D096372348BC8F0083CCDD /* Products.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Products.json; sourceTree = "<group>"; };
 		B2D096422348E9580083CCDD /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -159,14 +157,6 @@
 			path = "Shopping appUITests";
 			sourceTree = "<group>";
 		};
-		B2AFCF772347BD9300E2CA4C /* Setting */ = {
-			isa = PBXGroup;
-			children = (
-				B2AFCF8E2347C31F00E2CA4C /* ForeignExchangeViewController.swift */,
-			);
-			path = Setting;
-			sourceTree = "<group>";
-		};
 		B2AFCF782347BD9700E2CA4C /* Payment */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,7 +229,6 @@
 				B2AFCF902347C62E00E2CA4C /* Checking */,
 				B2AFCF782347BD9700E2CA4C /* Payment */,
 				B2D09651234A1DE00083CCDD /* Confirmation */,
-				B2AFCF772347BD9300E2CA4C /* Setting */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -402,7 +391,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2E0407023486D4500DA18AD /* Shopping.xcdatamodeld in Sources */,
-				B2AFCF8F2347C31F00E2CA4C /* ForeignExchangeViewController.swift in Sources */,
 				B2D09653234A1E0C0083CCDD /* ConfirmationViewController.swift in Sources */,
 				B2D09649234940D10083CCDD /* SingletonManager.swift in Sources */,
 				B2AFCF7F2347BF5700E2CA4C /* LoginViewController.swift in Sources */,

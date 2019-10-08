@@ -25,7 +25,6 @@
                         <segue destination="B5j-1L-F9G" kind="relationship" relationship="viewControllers" id="cvs-qV-I4x"/>
                         <segue destination="LzW-8I-ahM" kind="relationship" relationship="viewControllers" id="M4W-gn-aJf"/>
                         <segue destination="Xtm-Zj-kjn" kind="relationship" relationship="viewControllers" id="wSi-K7-ekr"/>
-                        <segue destination="qLG-Gb-v26" kind="relationship" relationship="viewControllers" id="SGC-2T-3EF"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zP0-rC-xJi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -431,24 +430,6 @@
             </objects>
             <point key="canvasLocation" x="-638" y="1120"/>
         </scene>
-        <!--Currency-->
-        <scene sceneID="MfL-xZ-zOT">
-            <objects>
-                <navigationController id="qLG-Gb-v26" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Currency" image="currency-exchange" id="mSA-fX-9x0"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bne-i9-Mex">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="PsN-hi-fxX" kind="relationship" relationship="rootViewController" id="0xz-Ih-eDM"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jwu-EU-do7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-639" y="1788"/>
-        </scene>
         <!--Pay-->
         <scene sceneID="D7S-nT-PvE">
             <objects>
@@ -504,21 +485,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u02-oh-RBj">
-                                <rect key="frame" x="16" y="455" width="97" height="61"/>
+                                <rect key="frame" x="16" y="466" width="97" height="61"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="44"/>
                                 <color key="textColor" red="0.78039215689999997" green="0.0" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afv-19-UUg">
-                                <rect key="frame" x="178" y="455" width="181" height="54"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afv-19-UUg">
+                                <rect key="frame" x="199" y="466" width="160" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="39"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bui-t2-0e6">
-                                <rect key="frame" x="67" y="528" width="240" height="59"/>
+                                <rect key="frame" x="67" y="539" width="240" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.88235294119999996" green="0.0" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -533,13 +514,27 @@
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qzW-Xh-rRt">
-                                <rect key="frame" x="0.0" y="351" width="375" height="96"/>
+                                <rect key="frame" x="0.0" y="362" width="375" height="96"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose your currency" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9u-r2-Sea">
-                                <rect key="frame" x="16" y="316" width="343" height="34"/>
+                                <rect key="frame" x="16" y="334" width="343" height="27"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fB7-KS-VUo">
+                                <rect key="frame" x="215" y="467" width="25" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dl9-xC-0yY">
+                                <rect key="frame" x="29" y="313" width="182" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -550,8 +545,10 @@
                     <navigationItem key="navigationItem" title="Pay" id="HxB-YS-fSI"/>
                     <connections>
                         <outlet property="currencyPicker" destination="qzW-Xh-rRt" id="TCE-e5-bcY"/>
+                        <outlet property="fxCurrency" destination="fB7-KS-VUo" id="gQS-Up-mTz"/>
                         <outlet property="orderTableView" destination="SGb-Ur-YhL" id="EHC-oV-R6v"/>
                         <outlet property="priceLabel" destination="s9u-r2-Sea" id="sDd-M4-b8o"/>
+                        <outlet property="testLabe" destination="dl9-xC-0yY" id="MKv-Lo-Bb7"/>
                         <outlet property="toaltLabel" destination="afv-19-UUg" id="wLS-hH-FHO"/>
                         <segue destination="pc1-Co-hSW" kind="show" identifier="Finish" id="hkl-RX-JqJ"/>
                     </connections>
@@ -634,75 +631,9 @@
             </objects>
             <point key="canvasLocation" x="1286" y="1119"/>
         </scene>
-        <!--Currency-->
-        <scene sceneID="NgN-lW-btg">
-            <objects>
-                <viewController id="PsN-hi-fxX" customClass="ForeignExchange" customModule="Shopping_app" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="z5Y-uU-59g">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="O2T-oi-llK">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dcA-Ky-QHd">
-                                    <size key="itemSize" width="120" height="120"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2u3-Ng-H20">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1.9034" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hR-pE-Bc5">
-                                                    <rect key="frame" x="9" y="50" width="103" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="EUR/USD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ad-Rg-GEb">
-                                                    <rect key="frame" x="9" y="13" width="103" height="34"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="PsN-hi-fxX" id="opO-vc-0Qa"/>
-                                    <outlet property="delegate" destination="PsN-hi-fxX" id="ZBN-bR-70g"/>
-                                </connections>
-                            </collectionView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="O2T-oi-llK" firstAttribute="leading" secondItem="twG-Xk-mML" secondAttribute="leading" id="Ubc-oF-Yzv"/>
-                            <constraint firstItem="O2T-oi-llK" firstAttribute="trailing" secondItem="twG-Xk-mML" secondAttribute="trailing" id="aIR-x7-7Ge"/>
-                            <constraint firstItem="O2T-oi-llK" firstAttribute="bottom" secondItem="twG-Xk-mML" secondAttribute="bottom" id="fGG-xp-32x"/>
-                            <constraint firstItem="O2T-oi-llK" firstAttribute="top" secondItem="twG-Xk-mML" secondAttribute="top" id="r6k-7v-P6s"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="twG-Xk-mML"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Currency" id="uyX-Y6-fxi"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="a7f-C9-bCl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="8.8000000000000007" y="1787.8560719640182"/>
-        </scene>
     </scenes>
     <resources>
         <image name="card-payment" width="24" height="24"/>
-        <image name="currency-exchange" width="24" height="24"/>
         <image name="online-store" width="24" height="24"/>
         <image name="picture" width="325" height="260"/>
         <image name="shopping-bag" width="24" height="24"/>
