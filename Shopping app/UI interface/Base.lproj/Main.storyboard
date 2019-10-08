@@ -531,13 +531,6 @@
                                 <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dl9-xC-0yY">
-                                <rect key="frame" x="29" y="313" width="182" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="xYp-fg-KWz"/>
@@ -548,7 +541,6 @@
                         <outlet property="fxCurrency" destination="fB7-KS-VUo" id="gQS-Up-mTz"/>
                         <outlet property="orderTableView" destination="SGb-Ur-YhL" id="EHC-oV-R6v"/>
                         <outlet property="priceLabel" destination="s9u-r2-Sea" id="sDd-M4-b8o"/>
-                        <outlet property="testLabe" destination="dl9-xC-0yY" id="MKv-Lo-Bb7"/>
                         <outlet property="toaltLabel" destination="afv-19-UUg" id="wLS-hH-FHO"/>
                         <segue destination="pc1-Co-hSW" kind="show" identifier="Finish" id="hkl-RX-JqJ"/>
                     </connections>
