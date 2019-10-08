@@ -12,13 +12,16 @@ class PaymentViewController: UIViewController,UITableViewDataSource, UITableView
     @IBOutlet weak var orderTableView: UITableView!
     @IBOutlet weak var toaltLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var fxCurrency: UILabel!
     @IBOutlet weak var currencyPicker: UIPickerView!
     var model = SingletonManager.model
-    var currencys = [String]()
-    var currency = [Int: Currency]()
-    
+    @IBOutlet weak var testLabe: UILabel!
+    var currency = [Currency]()
+    var activeCurrency = 0
     let baseURL = "https://www.freeforexapi.com/api/live?pairs=USD"
     let currencySelected = ["AUD", "CAD","EUR","GBP","JPY","NZD","PLN","USD"]
+    let currencySymbol = ["$","$","€","£","¥","$","zł","$"]
+    var currencychange = ""
     var finalURL = ""
    
     override func viewDidLoad() {
@@ -32,7 +35,33 @@ class PaymentViewController: UIViewController,UITableViewDataSource, UITableView
         currencyPicker.dataSource = self
         currencyPicker.selectRow(5, inComponent:0, animated:false)
         finalURL = baseURL + currencySelected[7]
-        print(finalURL)
+        currencychange = currencySymbol[7]
+        fetchData { (dict, error) in
+            debugPrint(dict as Any)
+        }
+        currencyPicker.selectRow(7, inComponent:0, animated:false)
+    }
+    func fetchData(completion: @escaping ([String:Any]?, Error?) -> Void) {
+        let url = URL(string: finalURL)!
+        
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard let data = data else { return }
+            do {
+                if let rates = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String:Any]{
+                        self.currency = [Currency]()
+                    let data = rates["rates"] as! NSDictionary
+                    
+                    print("&@",data)
+            
+    completion(rates, nil)
+                    
+                }
+            } catch {
+                print(error)
+                completion(nil, error)
+            }
+        }
+        task.resume()
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -46,12 +75,15 @@ class PaymentViewController: UIViewController,UITableViewDataSource, UITableView
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return currencySelected[row]
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         finalURL = baseURL + currencySelected[row]
-        print(finalURL)
+        fxCurrency.text = currencySymbol[row]
+        fetchData { (dict, error) in
+            debugPrint(dict as Any)
+        }
+        toaltLabel.text = fxCurrency.text! + String(format: "%.2f", model.calculateCartTotal())
     }
-
         func apiUrlCurrency() {
         do {
             if let file = URL(string: finalURL) {
@@ -62,7 +94,8 @@ class PaymentViewController: UIViewController,UITableViewDataSource, UITableView
                 } else if let object = json as? [Any] {
                     for anItem in object as! [Dictionary<String, AnyObject>] {
                         let rates = anItem["rates"] as! String
-                        let rate = anItem["rate"] as! String
+                        let rate = anItem["rate"] as! Double
+                         //self.toaltLabel.text = as! Double
                         _ = Currency(rates: rates, rate: rate )
                     }
                     }
@@ -87,7 +120,7 @@ class PaymentViewController: UIViewController,UITableViewDataSource, UITableView
     }
     
     func configureCheckout() {
-        toaltLabel.text = "$" + String(format: "%.2f", model.calculateCartTotal())
+        toaltLabel.text = fxCurrency.text! + String(format: "%.2f", model.calculateCartTotal())
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -100,9 +133,8 @@ class PaymentViewController: UIViewController,UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PaymentCell
-        
         cell.productLabel.text = model.products[Int(model.basket[indexPath.row][0])].name
-        cell.totalLabel.text = String(Int(model.basket[indexPath.row][1])) + " x $" + String(format: "%.2f", model.basket[indexPath.row][2])
+        cell.totalLabel.text = String(Int(model.basket[indexPath.row][1])) + fxCurrency.text! + String(format: "%.2f", model.basket[indexPath.row][2])
         
         return cell
     }
@@ -144,7 +176,7 @@ class PaymentViewController: UIViewController,UITableViewDataSource, UITableView
         }
         
         if !success {
-            let error = "Oops! Something went wrong. Please try again later."
+            let error = "Oops! Something  wrong. Please try again later."
             showAlertMsg("Error", message: error, style: UIAlertController.Style.alert)
         } else {
             print("Success! Checkout complete.")

@@ -73,7 +73,7 @@ extension ShopViewController: UITableViewDelegate,UITableViewDataSource {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ProductsTableViewCell
         cell.descriptionLabel.text = products?[indexPath.row].name
         cell.units.text = products?[indexPath.row].quantity
-        cell.priceLabel.text = String(format: "$%.2f", products?[indexPath.row].price ?? 4)
+        cell.priceLabel.text = String(format: "%.2f", products?[indexPath.row].price ?? 4)
         cell.productImageView.image = UIImage(named: (products?[indexPath.row].image)!)
         return cell
     }

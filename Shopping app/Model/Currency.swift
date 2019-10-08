@@ -10,7 +10,8 @@ import UIKit
 
 struct Currency : Decodable {
     let rates: String
-    let rate: String
+    let rate: Double
+    
     func getString() {
         print( "rates: \(rates), rate: \(rate)" )
     }
